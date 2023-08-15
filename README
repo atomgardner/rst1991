@@ -1,16 +1,13 @@
-MODULE rst1991 implements 'the C system', a causal unicast protocol, described
+MODULE TheCSystem implements 'the C system', a causal unicast protocol, described
 in
 
         Michel Raynal, Andre Schiper, and Sam Toueg.
         The causal ordering abstraction and a simple way to implement it.
         Information Processing Letters, 39(6):343–350, September 1991.
 
-We also show & repair a weakness in the protocol (puzzled out in discussions
-with Lindsey Kuper): if a process delivers a self-addressed message, the process
-eventually becomes unable to deliver messages. You can generate a run exhibiting
-this defect (specified here as a DeliveryOK invariant violation) by deleting
-"Fixed" on line 113, and running something like:
+We also repair a minor bug in the paper: if a process delivers a self-addressed
+message, the process eventually becomes unable to deliver messages.
 
-	java -jar /usr/share/java/tla-toolbox/tla2tools.jar \
-		-config config.cfg \
-		rst1991.tla
+To generate runs:
+
+	% java -jar /usr/share/java/tla-toolbox/tla2tools.jar TheCSystem.tla
